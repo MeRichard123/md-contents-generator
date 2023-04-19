@@ -3,7 +3,7 @@ use std::fs::read_to_string;
 
 fn parse_markdown(file_path: String) -> String {
     let contents = read_to_string(file_path).expect("file");
-    contents
+    return contents
 }
 
 fn count_char(line: &String, character: char) -> usize {
@@ -13,7 +13,7 @@ fn count_char(line: &String, character: char) -> usize {
             count += 1;
         }
     }
-    count
+    return count
 }
 
 
@@ -25,7 +25,7 @@ fn format_string(heading: &String) -> String {
         heading = heading.replace(symbol, "");
     }
     
-    heading.replace(" ", "-").to_string()
+    return heading.replace(" ", "-").to_string()
 }
 
 fn parse_line(line: String) -> Option<String> {
@@ -40,7 +40,7 @@ fn parse_line(line: String) -> Option<String> {
     
     let formated_string = format_string(&heading);
 
-    Some(format!("{indents}- [{heading}](#{formated_string})"))
+    return Some(format!("{indents}- [{heading}](#{formated_string})"))
 }
 
 fn generate_header() {
